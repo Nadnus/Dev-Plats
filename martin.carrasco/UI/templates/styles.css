@@ -1,0 +1,13 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.chat-bubble{
+  border-radius: 20px;
+  border-style: solid;
+  padding: 10px;
+  margin-bottom: 5%;
+  background-color: #cfeacf;
+  display: block;
+}

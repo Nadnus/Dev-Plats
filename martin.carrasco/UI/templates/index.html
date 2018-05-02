@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+ <head>
+   <meta charset="utf-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ChatX123</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+   <link rel="stylesheet" type="text/css" href="styles.css">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+   <script type="text/javascript" src="base.js" ></script>
+ </head>
+
+ <body>
+   <!-- Base container -->
+   <div class="container-fluid" style="height:100%;">
+     <div class="row" style="height: 100%;margin-left: 50px;margin-right: 50px;margin-top: 25px;margin-bottom:25px;">
+       <!--
+        Profile
+        -->
+      <div class="col-lg" style="background-color: #f0f0f1;height: 80%;border-style: dotted;border-color:black;padding: 5px;">
+
+        <div class="row"  style="border-style:groove;border-color:green;margin: 5px;border-width: 5px;">
+            <div class="col-xs">
+              <div class="media">
+                <img class="mr-3" src="http://via.placeholder.com/64x64">
+                <div class="media-body profile-click">
+                  <h5 class="mt-0">Profile Name</h5>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="row" id="def-chat" style="border-style: solid;border-width:2px;border-color: #000000;margin: 5px; padding: 5px;margin-right: 50px;margin-left:25px;">
+          Chat 1
+        </div>
+
+      </div>
+      <div class="col-lg" style="background-color: #cfeacf;border-style: dotted;padding:10px;height:80%;outline: 2px solid #000000;outline-offset: -10px;padding: 20px;">
+        <form style="height:100%;">
+
+          <div class="form-group" style="height: 100%;">
+            <div id="chatBox" style="min-height:25%;max-height:75%;height:50%;background-color: #283d28;padding: 10px;border-radius: 25px;resize: vertical;overflow: auto;">
+
+
+              <!--- Default outgoing message chat bubble -->
+              <div class="col-xs chat-bubble" id="userBubble" style="margin-right: 25%;" hidden>
+                Yellow
+              </div>
+
+
+              <!-- Default incoming message chat bubble -->
+              <div class="col-xs chat-bubble" id="targetBubble" style="margin-left: 25%;text-align: right;" hidden >
+                red
+              </div>
+
+
+            </div>
+            <!-- <textarea class="form-control" id="chatUserArea" style="min-height: 25%;max-height: 90%;height: 50%;" readonly></textarea> -->
+            <div class="input-group mb-2"  style="margin-top: 15px">
+              <div class="input-group-append">
+                <button type="button" class="input-group-text" id="arrowSubmit" autofocus>&#x2937;</button>
+              </div>
+              <input type="text" class="form-control" id="inputUser" placeholder="Say something...">
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+ </body>
+</html>
