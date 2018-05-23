@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 
-engine = create_engine('mysql+pymysql://localhost')
+engine = create_engine('mysql+mysqldb://localhost')
 con = engine.connect()
 con.execute("CREATE TABLE IF NOT EXISTS users("+
             "id INTEGER PRIMARY KEY AUTO_INCREMENT,"+
@@ -94,12 +94,16 @@ def users():
         st += ";"
     return st
 
-class Cache():
-    def __init__(self, timestamp, time_alive=60*30):
-        self.timestamp = timestamp
-        self.time_alive = time_alive
-        self.data = {}
-        self.t = Thread()
+class Cache:
+    class __Cache:
+        def __init__(self, timestamp, time_alive=60*30):
+            self.timestamp = timestamp
+            self.time_alive = time_alive
+            self.data = {}
+    instance = None
+    def __init__(self, timestamp, time_alive):
+        if not Cache.instance:
+            Cache.instance = Cache.__Cache(timestamp, time_alive=60*30)
 
     def run(self):
         time.sleep(60*5)

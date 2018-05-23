@@ -1,5 +1,6 @@
 import time
 import sqlalchemy
+import json
 
 class Message:
     def __init__(self, data_type, data, sender, receiver, timestamp):
@@ -48,10 +49,13 @@ class Chat:
             "last_activity BIGINT, "+
             "time_created BIGINT" +
             ")")
-        #serialize msgs before sending query
+
+        str_list = []
+        for msg in self.msgs:
+            str_list.append(json.JSONEncoder.encode(msg))
 
         connection.execute("INSERT INTO " + self.sender + "(sender, receiver, messages, last_activity, time_created) " +
-                           "VALUES(" + self.sender + ", " + self.receiver+", " + self.msgs  + ", " + self.last_activity + ", " + self.time_created + ")")
+                           "VALUES(%s,%s,%s,%d,%d)" % (self.sender, self.receiver, ''.join(str_list), self.last_activity, self.time_created))
 class ChatFactory:
     def __init__(self, sender, receiver):
         self.sender = sender
