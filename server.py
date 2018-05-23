@@ -104,7 +104,7 @@ class Cache():
     def run(self):
         time.sleep(60*5)
         for key in self.data:
-            if self.data[key]["timestamp"] >= time.time()+self.time_alive:
+            if self.data[key]["timestamp"]+self.time_alive < time.time()+self.time_alive:
                 self.data[key] = None
 
     def update(self, key, data):
